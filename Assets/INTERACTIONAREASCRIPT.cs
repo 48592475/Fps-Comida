@@ -18,18 +18,22 @@ public class INTERACTIONAREASCRIPT : MonoBehaviour
     {
         
     }
+    void Puntaje(int puntosItem)
+    {
+        Puntos += puntosItem;
+    }
     void OnTriggerEnter(Collider other)
     {
         PickUpScript pickUp;
         pickUp = GetComponent<PickUpScript>();
         if (pickUp.Comida == true)
         {
-            Puntos = pickUp.puntosItem;
+            Puntaje(pickUp.puntosItem);
             Destroy(other);
         }
         else
         {
-            Puntos = pickUp.puntosItem;
+            Puntaje(pickUp.puntosItem);
         }
         Debug.Log(other);
     }
